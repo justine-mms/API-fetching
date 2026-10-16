@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      fetching
+    </title>
+    <link rel="stylesheet" href="ph.css">
+  </head>
+    <body>
+      <h1>
+        THE WAY TO FETCH DATA FROM API USING JAVASCRIPT
+      </h1>
+      <h2>
+        Fetching JSON Data
+      </h2>   
+      <p id="me"></p>
+      <div class="container">
+        <div class="box">
+          <button type="button">open</button>
+        </div>
+      </div>
+      <script>
+          fetch("https://jsonplaceholder.typicode.com/users")
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            getdata(data);
+          })
+          function getdata(users){
+            const container = document.getElementById("me");
+            
+            users.forEach((user,index)=>{
+              const line = document.createElement("p");
+              line.className = "user";
+              line.style.setProperty("--i", index);
+              line.textContent = `${user.name} - ${user.email}`;
+              container.appendChild(line);
+            })
+          }
+        </script>
+    </body>
+</html>
