@@ -25,4 +25,5 @@ button{
 }
 button:hover{
     background:darkblue;
+    opacity:0.8;
 }

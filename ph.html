@@ -34,7 +34,7 @@
               const line = document.createElement("p");
               line.className = "user";
               line.style.setProperty("--i", index);
-              line.textContent = `${user.name} - ${user.email}`;
+              line.textContent = `${user.id}-${user.name} - ${user.email}`;
               container.appendChild(line);
             })
           }
