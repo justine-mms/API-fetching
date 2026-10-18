@@ -1,43 +1,104 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>
-      fetching
-    </title>
-    <link rel="stylesheet" href="ph.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A directory of user profiles." />
+    <title>People Directory</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="ph.css" />
+    <script src="ph.js" defer></script>
   </head>
-    <body>
-      <h1>
-        THE WAY TO FETCH DATA FROM API USING JAVASCRIPT
-      </h1>
-      <h2>
-        Fetching JSON Data
-      </h2>   
-      <p id="me"></p>
-      <div class="container">
-        <div class="box">
-          <button type="button">open</button>
+  <body>
+    <main class="directory">
+      <header class="directory-header">
+        <div>
+          <p class="eyebrow">CONTACTS / DIRECTORY</p>
+          <h1>People directory</h1>
+          <p class="intro">Contact details for people in your network.</p>
+        </div>
+      </header>
+
+      <section class="directory-content" aria-label="People">
+        <p class="directory-status" id="directory-status" role="status">
+          Loading profiles...
+        </p>
+        <div class="people-grid" id="people-grid"></div>
+      </section>
+
+      <footer class="directory-footer">
+        Profile data provided by JSONPlaceholder
+      </footer>
+    </main>
+
+    <template id="profile-template">
+      <div class="profile-heading">
+        <span class="avatar" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="3.5"></circle>
+            <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+          </svg>
+        </span>
+        <div>
+          <h2 class="name"></h2>
+          <p class="username"></p>
         </div>
       </div>
-      <script>
-          fetch("https://jsonplaceholder.typicode.com/users")
-          .then(function(response){
-            return response.json();
-          })
-          .then(function(data){
-            getdata(data);
-          })
-          function getdata(users){
-            const container = document.getElementById("me");
-            
-            users.forEach((user,index)=>{
-              const line = document.createElement("p");
-              line.className = "user";
-              line.style.setProperty("--i", index);
-              line.textContent = `${user.name} - ${user.email}`;
-              container.appendChild(line);
-            })
-          }
-        </script>
-    </body>
+      <div class="profile-details">
+        <p class="detail">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m3 7 9 6 9-6"></path>
+          </svg>
+          <span class="email"></span>
+        </p>
+        <p class="detail">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="7" width="18" height="14" rx="2"></rect>
+            <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"></path>
+          </svg>
+          <span class="company"></span>
+        </p>
+        <p class="detail">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M8 3H5a2 2 0 0 0-2 2c0 8.8 7.2 16 16 16a2 2 0 0 0 2-2v-3l-5-2-2 3a14 14 0 0 1-7-7l3-2-2-5Z"
+            ></path>
+          </svg>
+          <span class="phone"></span>
+        </p>
+      </div>
+    </template>
+  </body>
 </html>
