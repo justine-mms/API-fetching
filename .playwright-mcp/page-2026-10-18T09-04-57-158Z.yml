@@ -1,0 +1,8 @@
+- main [ref=e2]:
+  - generic [ref=e4]:
+    - paragraph [ref=e5]: CONTACTS / DIRECTORY
+    - heading "People directory" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Contact details for people in your network.
+  - region "People" [ref=e8]:
+    - status [ref=e9]: Loading profiles...
+  - generic [ref=e10]: Profile data provided by JSONPlaceholder
